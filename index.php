@@ -8,7 +8,12 @@
 </head>
 <body>
     <?php
-    
+        $url = "https://swapi.dev/api/people/?page=1";
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $results = json_decode(curl_exec($ch));
+        var_dump($results);
     ?>
 </body>
 </html>
